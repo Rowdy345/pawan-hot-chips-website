@@ -290,86 +290,11 @@
             50% { transform: translateY(-15px); }
         }
 
-        .chips-visual {
+        .product-visual img {
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #ff6f00 0%, #ffb74d 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 90px;
-            position: relative;
-        }
-
-        .chips-visual::before {
-            content: '';
-            position: absolute;
-            width: 120px;
-            height: 120px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            top: 10px;
-            left: 10px;
-            animation: shine 3s ease-in-out infinite;
-        }
-
-        @keyframes shine {
-            0%, 100% { opacity: 0.2; }
-            50% { opacity: 0.5; }
-        }
-
-        .namkeen-visual {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #d32f2f 0%, #ff6f00 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 90px;
-            position: relative;
-        }
-
-        .namkeen-visual::before {
-            content: '';
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 50%;
-            bottom: 15px;
-            right: 15px;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.3; }
-            50% { transform: scale(1.2); opacity: 0.5; }
-        }
-
-        .biscuit-visual {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #c9a961 0%, #e8d5a4 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 90px;
-            position: relative;
-        }
-
-        .biscuit-visual::before {
-            content: '';
-            position: absolute;
-            width: 140px;
-            height: 140px;
-            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.3), transparent 70%);
-            border-radius: 50%;
-            animation: shimmer 3s ease-in-out infinite;
-        }
-
-        @keyframes shimmer {
-            0%, 100% { transform: translateX(-50px) translateY(-50px); opacity: 0; }
-            50% { transform: translateX(20px) translateY(20px); opacity: 0.5; }
+            object-fit: cover;
+            border-radius: inherit;
         }
 
         .product-label {
@@ -466,11 +391,13 @@
         .product-image {
             width: 100%;
             height: 260px;
-            background: linear-gradient(135deg, #ff9800 0%, #ffc107 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 90px;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .product-info {
@@ -696,7 +623,7 @@
             <div class="hero-products">
                 <div class="hero-product-item">
                     <div class="product-visual">
-                        <div class="chips-visual">🌶️</div>
+                        <img src="https://plus.unsplash.com/premium_photo-1672753747124-2bd4da9931fa?w=200&h=200&fit=crop" alt="Hot Chips">
                     </div>
                     <p class="product-label">Hot Chips</p>
                     <p class="product-sublabel">Spicy & Crispy</p>
@@ -704,7 +631,7 @@
 
                 <div class="hero-product-item">
                     <div class="product-visual">
-                        <div class="namkeen-visual">🥨</div>
+                        <img src="https://plus.unsplash.com/premium_photo-1672753748303-c628b6c65549?w=200&h=200&fit=crop" alt="Namkeen Mix">
                     </div>
                     <p class="product-label">Namkeen Mix</p>
                     <p class="product-sublabel">Savory Blend</p>
@@ -712,7 +639,7 @@
 
                 <div class="hero-product-item">
                     <div class="product-visual">
-                        <div class="biscuit-visual">🍪</div>
+                        <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=200&h=200&fit=crop" alt="Masala Biscuits">
                     </div>
                     <p class="product-label">Masala Biscuits</p>
                     <p class="product-sublabel">Golden & Fresh</p>
@@ -720,7 +647,7 @@
 
                 <div class="hero-product-item">
                     <div class="product-visual">
-                        <div class="chips-visual">🧀</div>
+                        <img src="https://images.unsplash.com/photo-1762884601729-0eeeafbdfb8a?w=200&h=200&fit=crop" alt="Banana Chips">
                     </div>
                     <p class="product-label">Cheese & Spice</p>
                     <p class="product-sublabel">Premium Blend</p>
@@ -733,7 +660,9 @@
         <h2 class="section-title">Our Collection</h2>
         <div class="products-grid">
             <div class="product-card">
-                <div class="product-image">🌶️</div>
+                <div class="product-image">
+                    <img src="https://plus.unsplash.com/premium_photo-1672753747124-2bd4da9931fa?w=200&h=200&fit=crop" alt="Hot Chips">
+                </div>
                 <div class="product-info">
                     <h3 class="product-name">Hot Chips</h3>
                     <p class="product-description">Crispy, spicy hot chips loaded with authentic flavors. Perfect for those who love heat and taste.</p>
@@ -741,7 +670,9 @@
             </div>
 
             <div class="product-card">
-                <div class="product-image">🥨</div>
+                <div class="product-image">
+                    <img src="https://plus.unsplash.com/premium_photo-1672753748303-c628b6c65549?w=200&h=200&fit=crop" alt="Namkeen Mix">
+                </div>
                 <div class="product-info">
                     <h3 class="product-name">Namkeen Mix</h3>
                     <p class="product-description">Perfect blend of roasted namkeen with a savory punch. A timeless favorite for every occasion.</p>
@@ -749,7 +680,9 @@
             </div>
 
             <div class="product-card">
-                <div class="product-image">🍪</div>
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=300&h=300&fit=crop" alt="Masala Biscuits">
+                </div>
                 <div class="product-info">
                     <h3 class="product-name">Masala Biscuits</h3>
                     <p class="product-description">Golden biscuits infused with traditional Indian masala. A delightful treat any time of day.</p>
@@ -757,7 +690,9 @@
             </div>
 
             <div class="product-card">
-                <div class="product-image">🧀</div>
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1762884601729-0eeeafbdfb8a?w=200&h=200&fit=crop" alt="Banana Chips">
+                </div>
                 <div class="product-info">
                     <h3 class="product-name">Cheese & Spice</h3>
                     <p class="product-description">Crunchy snack with a delightful cheese and spice combo. The perfect party companion.</p>
@@ -835,7 +770,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2024 Pawan Hot Chips. All rights reserved. 🌶️ Crafted with Passion • Made with Love 🌶️</p>
+                <p>© 2026 Pawan Hot Chips. All rights reserved. Crafted with Passion • Made with Love.</p>
              
             </div>
         </div>
