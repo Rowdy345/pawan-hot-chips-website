@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pawan Hot Chips - Premium Namkeen & Biscuits</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: white;
+            color: #1d1d1d;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .announcement {
+            background: linear-gradient(90deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #ffeb3b;
+            padding: 12px 0;
+            overflow: hidden;
+            position: relative;
+            font-weight: 600;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .marquee-content {
+            display: flex;
+            animation: scroll 15s linear infinite;
+            white-space: nowrap;
+            padding-left: 100%;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .marquee-content:hover {
+            animation-play-state: paused;
+        }
+
+        .marquee-item {
+            display: inline-block;
+            padding: 0 50px;
+            text-transform: uppercase;
+        }
+
+        nav {
+            display: flex;
+            position: relative;
+            width: 100%;
+            background: linear-gradient(135deg, #d32f2f 0%, #ff6f00 100%);
+            z-index: 1000;
+            padding: 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            width: 100%;
+            height: 60px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+            display: none;
+        }
+
+        .tagline {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 50px;
+            margin-left: auto;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        nav a:hover {
+            color: #fff;
+            opacity: 0.8;
+        }
+
+        .hero {
+            margin-top: 0;
+            background: linear-gradient(135deg, #d32f2f 0%, #ff6f00 100%);
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -300px;
+            right: -200px;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            bottom: -200px;
+            left: -150px;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(40px); }
+        }
+
+        .hero-wrapper {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero-header {
+            margin-bottom: 60px;
+        }
+
+        .hero-brand {
+            font-size: 64px;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-tagline {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 300;
+            letter-spacing: 1px;
+            animation: slideDown 0.8s ease-out 0.2s forwards;
+            opacity: 0;
+        }
+
+        .hero-content {
+            margin-bottom: 60px;
+        }
+
+        .hero-content h1 {
+            font-size: 72px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            animation: slideDown 0.8s ease-out 0.4s forwards;
+            opacity: 0;
+        }
+
+        .hero-content p {
+            font-size: 22px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 40px;
+            font-weight: 300;
+            line-height: 1.6;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: slideDown 0.8s ease-out 0.6s forwards;
+            opacity: 0;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 60px;
+            animation: slideDown 0.8s ease-out 0.8s forwards;
+            opacity: 0;
+        }
+
+        .hero-products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            justify-content: center;
+        }
+
+        .hero-product-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        .hero-product-item:nth-child(1) { animation-delay: 1s; }
+        .hero-product-item:nth-child(2) { animation-delay: 1.2s; }
+        .hero-product-item:nth-child(3) { animation-delay: 1.4s; }
+        .hero-product-item:nth-child(4) { animation-delay: 1.6s; }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .product-visual {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+            animation: bounce 3s ease-in-out infinite;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .product-visual:hover {
+            transform: scale(1.05);
+            box-shadow: 0 35px 70px rgba(0, 0, 0, 0.25);
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .chips-visual {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #ff6f00 0%, #ffb74d 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 90px;
+            position: relative;
+        }
+
+        .chips-visual::before {
+            content: '';
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            top: 10px;
+            left: 10px;
+            animation: shine 3s ease-in-out infinite;
+        }
+
+        @keyframes shine {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 0.5; }
+        }
+
+        .namkeen-visual {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #d32f2f 0%, #ff6f00 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 90px;
+            position: relative;
+        }
+
+        .namkeen-visual::before {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            bottom: 15px;
+            right: 15px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.2); opacity: 0.5; }
+        }
+
+        .biscuit-visual {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #c9a961 0%, #e8d5a4 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 90px;
+            position: relative;
+        }
+
+        .biscuit-visual::before {
+            content: '';
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.3), transparent 70%);
+            border-radius: 50%;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { transform: translateX(-50px) translateY(-50px); opacity: 0; }
+            50% { transform: translateX(20px) translateY(20px); opacity: 0.5; }
+        }
+
+        .product-label {
+            font-size: 18px;
+            font-weight: 700;
+            color: white;
+            text-align: center;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-sublabel {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.9);
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .btn {
+            padding: 16px 40px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #d32f2f;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #d32f2f;
+            transform: translateY(-4px);
+        }
+
+        .section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 56px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 70px;
+            color: #1d1d1d;
+        }
+
+        .products-section {
+            background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 50px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.5s ease;
+            cursor: pointer;
+            border: 1px solid rgba(211, 47, 47, 0.1);
+        }
+
+        .product-card:hover {
+            transform: translateY(-20px);
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 260px;
+            background: linear-gradient(135deg, #ff9800 0%, #ffc107 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 90px;
+        }
+
+        .product-info {
+            padding: 35px 25px;
+        }
+
+        .product-name {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1d1d1d;
+            margin-bottom: 12px;
+        }
+
+        .product-description {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .features-section {
+            background: linear-gradient(180deg, #f5f5f5 0%, #ffffff 100%);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 60px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 40px 30px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(211, 47, 47, 0.08);
+            transition: all 0.4s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(211, 47, 47, 0.12);
+        }
+
+        .feature-icon {
+            font-size: 70px;
+            margin-bottom: 25px;
+        }
+
+        .feature-item h3 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1d1d1d;
+            margin-bottom: 15px;
+        }
+
+        .feature-item p {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, rgba(211, 47, 47, 0.08) 0%, rgba(255, 111, 0, 0.08) 100%);
+            padding: 120px 40px;
+            text-align: center;
+            border-radius: 40px;
+            border: 2px solid rgba(211, 47, 47, 0.1);
+        }
+
+        .cta-section h2 {
+            font-size: 52px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: #1d1d1d;
+        }
+
+        .cta-section p {
+            font-size: 20px;
+            color: #555;
+            margin-bottom: 50px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #f5f5f5;
+            padding: 80px 20px 40px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-section h4 {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: #b3b3b3;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #ff6f00;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            text-align: center;
+            font-size: 13px;
+            color: #999;
+        }
+
+        @media (max-width: 768px) {
+            .hero-wrapper {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .hero-content h1 {
+                font-size: 52px;
+            }
+
+            .section-title {
+                font-size: 40px;
+                margin-bottom: 50px;
+            }
+
+            .products-grid {
+                gap: 30px;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav ul {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 36px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Announcement Banner -->
+    <div class="announcement">
+        <div class="marquee-content">
+            <span class="marquee-item">🎉 NEW BRANCH OPEN! Uday Tower, Kathautha Chauraha</span>
+            <span class="marquee-item">🎉 NEW BRANCH OPEN! Uday Tower, Kathautha Chauraha</span>
+            <span class="marquee-item">🎉 NEW BRANCH OPEN! Uday Tower, Kathautha Chauraha</span>
+        </div>
+    </div>
+
+    <nav>
+        <div class="nav-container">
+            <ul>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#features">Why Us</a></li>
+                <li><a href="#order">Order</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-wrapper">
+            <div class="hero-header">
+                <h2 class="hero-brand">🔥 Pawan Hot Chips</h2>
+                <p class="hero-tagline">Premium Hot Chips & Namkeen</p>
+            </div>
+
+            <div class="hero-content">
+                <h1>Taste Excellence</h1>
+                <p>Crafted with tradition, perfected with passion. Experience authentic flavors that elevate every moment.</p>
+                <div class="hero-buttons">
+                    <a href="#order" class="btn btn-primary">📱 Order Now</a>
+                    <a href="#products" class="btn btn-secondary">Explore Products</a>
+                </div>
+            </div>
+
+            <div class="hero-products">
+                <div class="hero-product-item">
+                    <div class="product-visual">
+                        <div class="chips-visual">🌶️</div>
+                    </div>
+                    <p class="product-label">Hot Chips</p>
+                    <p class="product-sublabel">Spicy & Crispy</p>
+                </div>
+
+                <div class="hero-product-item">
+                    <div class="product-visual">
+                        <div class="namkeen-visual">🥨</div>
+                    </div>
+                    <p class="product-label">Namkeen Mix</p>
+                    <p class="product-sublabel">Savory Blend</p>
+                </div>
+
+                <div class="hero-product-item">
+                    <div class="product-visual">
+                        <div class="biscuit-visual">🍪</div>
+                    </div>
+                    <p class="product-label">Masala Biscuits</p>
+                    <p class="product-sublabel">Golden & Fresh</p>
+                </div>
+
+                <div class="hero-product-item">
+                    <div class="product-visual">
+                        <div class="chips-visual">🧀</div>
+                    </div>
+                    <p class="product-label">Cheese & Spice</p>
+                    <p class="product-sublabel">Premium Blend</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section products-section" id="products">
+        <h2 class="section-title">Our Collection</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image">🌶️</div>
+                <div class="product-info">
+                    <h3 class="product-name">Hot Chips</h3>
+                    <p class="product-description">Crispy, spicy hot chips loaded with authentic flavors. Perfect for those who love heat and taste.</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">🥨</div>
+                <div class="product-info">
+                    <h3 class="product-name">Namkeen Mix</h3>
+                    <p class="product-description">Perfect blend of roasted namkeen with a savory punch. A timeless favorite for every occasion.</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">🍪</div>
+                <div class="product-info">
+                    <h3 class="product-name">Masala Biscuits</h3>
+                    <p class="product-description">Golden biscuits infused with traditional Indian masala. A delightful treat any time of day.</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">🧀</div>
+                <div class="product-info">
+                    <h3 class="product-name">Cheese & Spice</h3>
+                    <p class="product-description">Crunchy snack with a delightful cheese and spice combo. The perfect party companion.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section features-section" id="features">
+        <h2 class="section-title">Why Choose Pawan?</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">✨</div>
+                <h3>Premium Quality</h3>
+                <p>Only the finest ingredients go into every batch. No compromises.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🎯</div>
+                <h3>Authentic Taste</h3>
+                <p>Traditional recipes combined with modern craftsmanship for perfection.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🚚</div>
+                <h3>Fast Delivery</h3>
+                <p>Fresh products delivered to your doorstep within hours of ordering.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">💯</div>
+                <h3>Customer First</h3>
+                <p>Your satisfaction is our top priority. Always and forever.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section cta-section" id="order">
+        <h2>Ready to Taste Excellence?</h2>
+        <p>Join thousands of satisfied customers who have made Pawan Hot Chips their favorite snack destination. Order now and get exclusive deals!</p>
+        <a href="https://wa.me/917388872088" class="btn btn-primary">📱 Order on WhatsApp</a>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="#products">All Products</a></li>
+                        <li><a href="#features">Why Us</a></li>
+                        <li><a href="#order">Order Now</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Recipes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:7388872088">📱 +91 7388872088</a></li>
+                        <li><a href="mailto:pawanhotchips@gmail.com">📧 pawanhotchips@gmail.com</a></li>
+                        <li><span style="color: #b3b3b3;">⏰ Mon-Sun: 9 AM - 10 PM</span></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <ul>
+                        <li><a href="https://instagram.com/pawanhotchips" target="_blank">📸 Instagram</a></li>
+                        <li><a href="https://wa.me/917388872088">💬 WhatsApp</a></li>
+                        <li><a href="#">📍 Find Location</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Pawan Hot Chips. All rights reserved. 🌶️ Crafted with Passion • Made with Love 🌶️</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
