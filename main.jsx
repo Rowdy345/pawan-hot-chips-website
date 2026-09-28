@@ -1,8 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import Website from './Website.jsx'
+import Website from './Storefront.jsx'
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+const rootElement = document.createElement('div')
+rootElement.id = 'root'
+document.body.replaceChildren(rootElement)
+document.getElementById('legacy-site-styles')?.remove()
+
+ReactDOM.createRoot(rootElement).render(
   <React.StrictMode>
     <Website />
   </React.StrictMode>
